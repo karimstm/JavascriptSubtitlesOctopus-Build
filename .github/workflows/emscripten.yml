@@ -1,0 +1,33 @@
+name: Emscripten
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Base Repo
+      uses: actions/checkout@v2
+
+    - name: Checkout Submodules
+      run: |
+        git submodule sync
+        git submodule update --init --force
+
+    - name: Build Docker Image
+      run: |
+        docker build -t libass/jso .
+
+    - name: Build Binaries
+      run: |
+        docker run --rm -v "${PWD}":/code libass/jso:latest
+
+    - name: Upload Nightly Build
+      uses: actions/upload-artifact@v2
+      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/master'
+      with:
+        name: js
+        path: dist/js

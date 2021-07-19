@@ -1,0 +1,28 @@
+[submodule "lib/libass"]
+	path = lib/libass
+	url = https://github.com/libass/libass.git
+	ignore = dirty
+[submodule "lib/fribidi"]
+	path = lib/fribidi
+	url = https://github.com/fribidi/fribidi.git
+	ignore = dirty
+[submodule "lib/fontconfig"]
+	path = lib/fontconfig
+	url = https://gitlab.freedesktop.org/fontconfig/fontconfig.git
+	ignore = dirty
+[submodule "lib/freetype"]
+	path = lib/freetype
+	url = https://git.savannah.gnu.org/git/freetype/freetype2.git
+	ignore = dirty
+[submodule "lib/expat"]
+	path = lib/expat
+	url = https://github.com/libexpat/libexpat.git
+	ignore = dirty
+[submodule "lib/harfbuzz"]
+	path = lib/harfbuzz
+	url = https://github.com/harfbuzz/harfbuzz.git
+	ignore = dirty
+[submodule "lib/brotli"]
+	path = lib/brotli
+	url = https://github.com/google/brotli
+	ignore = dirty
